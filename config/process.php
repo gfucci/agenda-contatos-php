@@ -53,7 +53,20 @@
             $stmt->execute();
 
             $_SESSION["msg"] = "Contato atualizado com sucesso!";
-        } 
+        } else if ($data["type"] === "delete") {
+
+            $id = $data["id"];
+
+            $deleteQuery = "DELETE FROM contacts WHERE id = :id";
+
+            $stmt = $conn->prepare($deleteQuery);
+
+            $stmt->bindParam(":id", $id);
+
+            $stmt->execute();
+
+            $_SESSION["msg"] = "Contato excluído com sucesso";
+        }
 
         //redirect HOME
         header("Location:" . $BASE_URL . "../index.php");
