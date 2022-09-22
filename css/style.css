@@ -92,3 +92,13 @@
     padding: 5px;
     text-decoration: none;
 }
+
+#create-form,
+#edit-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-control {
+    margin-bottom: 25px;
+}
