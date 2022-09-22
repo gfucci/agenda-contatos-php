@@ -4,7 +4,7 @@
 
 ?>
     <div class="container">
-        <?php if (isset($printMsg) && $printMsg = ''): ?>
+        <?php if (isset($printMsg) && $printMsg != ''): ?>
             <p id="msg"><?= $printMsg ?></p>
         <?php endif; ?>
         <h1 id="main-title">Minha Agenda</h1>
@@ -28,7 +28,7 @@
                                 <a href="<?= $BASE_URL ?>show.php?id=<?= $contact["id"] ?>">
                                     <i class="fas fa-eye check-icon"></i>
                                 </a>
-                                <a href="#">
+                                <a href="<?= $BASE_URL ?>edit.php?id=<?= $contact["id"] ?>">
                                     <i class="far fa-edit edit-icon"></i>
                                 </a>
                                 <button type="submit" class="delete-btn">

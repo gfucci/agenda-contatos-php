@@ -4,7 +4,6 @@
 
 ?>
 
-
-
+<footer></footer>
 </body>
 </html>

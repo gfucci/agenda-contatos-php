@@ -29,8 +29,31 @@
 
             $stmt->execute();
 
-            $_SESSION["msg"] = "Contato criado com sucesso";
-        }
+            $_SESSION["msg"] = "Contato criado com sucesso!";
+
+        } else if ($data["type"] === "edit") {
+
+            //inputs form
+            $name = $data["name"];
+            $phone = $data["phone"];
+            $observations = $data["observations"];
+            $id = $data["id"];
+
+            $updateQuery = "UPDATE contacts 
+                            SET name = :name, phone = :phone, observations = :observations 
+                            WHERE id = :id";
+
+            $stmt = $conn->prepare($updateQuery);
+
+            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":phone", $phone);
+            $stmt->bindParam(":observations", $observations);
+
+            $stmt->execute();
+
+            $_SESSION["msg"] = "Contato atualizado com sucesso!";
+        } 
 
         //redirect HOME
         header("Location:" . $BASE_URL . "../index.php");
